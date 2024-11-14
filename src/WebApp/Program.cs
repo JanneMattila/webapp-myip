@@ -18,7 +18,7 @@ app.UseForwardedHeaders();
 
 app.MapGet("/", (HttpContext context) =>
 {
-    return context.Connection.RemoteIpAddress.ToString();
+    return context.Connection.RemoteIpAddress?.ToString();
 });
 
 app.Run();

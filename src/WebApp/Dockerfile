@@ -1,12 +1,12 @@
-# https://hub.docker.com/_/microsoft-dotnet-core-sdk/
+# https://hub.docker.com/r/microsoft/dotnet
 # See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0.4-alpine3.18-amd64 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:9.0.0-alpine3.20-amd64 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0.204-alpine3.18-amd64 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0.100-alpine3.20-amd64 AS build
 WORKDIR /src
 COPY ["src/WebApp/WebApp.csproj", "src/WebApp/"]
 RUN dotnet restore "src/WebApp/WebApp.csproj"
